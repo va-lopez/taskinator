@@ -17,6 +17,10 @@ var taskFormHandler = function(event){
         return false;
     }
 
+    // reset form fields for next task to be entered
+    document.querySelector("input[name='task-name']").value = "";
+    document.querySelector("select[name='task-type']").selectedIndex = 0;
+
     var isEdit = formEl.hasAttribute("data-task-id");
 
     //has data attribute, so get task id and call function to complete edit process
@@ -33,6 +37,7 @@ var taskFormHandler = function(event){
         };
         createTaskEl(taskDataObj);
     }
+    
 };
 
 var completeEditTask = function(taskName, taskType, taskId){
